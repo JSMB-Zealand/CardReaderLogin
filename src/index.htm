@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="bundle.css">
+    <script src="https://kit.fontawesome.com/90baadff03.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Storage, world!</title>
+  </head>
+  <body>
+   <header class="contrainer-fluid">
+    <nav class="navbar navbar-expand-lg navbar-inverse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-inverse" id="navbarTogglerDemo01">
+          <a class=" brand" href="#">JSBM</p>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <div class="dropdown rooms">
+                <button class="btn btn-primary   dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Rooms
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">IOT libratory</a>
+                  <a class="dropdown-item" href="#"> Programming room</a>
+                  <a class="dropdown-item" href="#">Library</a>
+                </div>            
+              </li>
+            <li class="nav-item">
+                <div class="logout">
+                    <button type="button" class="btn btn-default btn-sm logout_btn">           
+                        <i class="fas fa-sign-out-alt"></i>
+                      <span class="text">Log out</span></button>
+                  </div>           
+            </li>
+           
+          </ul>
+         
+        </div>
+      </nav>
+  </header> 
+  
+  <div class="container section" id="section">
+    <div class="room_name text-justify text-center">
+      <h1 >Current Room Name</h1>
+    </div>
+    <div class="search-box">
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      </div>
+    <div class="collapse-section create-new-card ">
+        <p>
+            <a class="btn btn-primary d-flex justify-content-center" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Create new user's card
+            </a>
+        </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <form>
+                    <div class="form-group">
+                      <label for="id">Id: </label>
+                      <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp" placeholder="Type a new id">
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Name: </label>
+                      <input type="name" class="form-control" id="exampleInputPassword1" placeholder="Type a new name">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add New</button>
+                  </form>            </div>
+          </div>
+    </div>
+      <div class="table-container" role="table" aria-label="Destinations">
+          <div class="flex-table header" role="rowgroup">
+          <div class="flex-row first" role="columnheader">Action</div>
+          <div class="flex-row" role="columnheader">Id</div>
+          <div class="flex-row" role="columnheader">Name</div>
+          <div class="flex-row" role="columnheader">Time</div>
+        </div>
+        
+        <div class="flex-table row">
+          <div class="flex-row first" role="cell"><span class="edit">edit </span><span class="delete">delete</span> </div>
+          <div class="flex-row">1849498498</div>
+          <div class="flex-row">John Doe</div>
+          <div class="flex-row">12:32:12 12.5.2019</div>
+        </div>
+        <div class="flex-table row">
+            <div class="flex-row first" role="cell"><span class="edit">edit </span><span class="delete">delete</span> </div>
+            <div class="flex-row">5161161652</div>
+            <div class="flex-row">Maria Magdalena</div>
+            <div class="flex-row">12:32:12 12.5.2018</div>
+          </div>
+      </div>
+
+
+      <div class="pagination d-flex justify-content-center">
+          <a href="#">❮</a>
+          <a href="#">❯</a>
+        </div>
+  </div>
+
+  <footer>
+      <div class="footer-copyright text-center py-3 c-white text-white footer-text">© 2019 Copyright:
+          <div class="footer-copyright text-center py-3 c-white text-white footer-text">© 2019 Copyright:
+          <a href="https://mdbootstrap.com/education/bootstrap/"> JSBM group</a>
+        </div>
+  </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script src="bundle.js"></script>
+  </body>
+</html>
