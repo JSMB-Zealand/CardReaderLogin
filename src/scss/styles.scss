@@ -63,6 +63,13 @@ nav{
     display: inline;
 }
 
+.storage li a {
+  color: white;
+}
+.storage li {
+  margin-top: 10px;
+  margin-left: 30px;
+}
 .logout button {
     display: inline;
 }
@@ -130,7 +137,7 @@ i{
   }
   
   .flex-row {
-    width: calc(100% / 3);
+    width: calc(100% / 4);
     text-align: center;
     padding: 0.5em 0.5em;
     margin: 0;
@@ -321,6 +328,10 @@ footer .footer-text {
     margin-top:70px;
   }
 
+  .storage li {
+    margin-top: 0;
+    margin-left: 10px;
+  }
 
   .brand {
     display: none;
