@@ -39,6 +39,14 @@ nav{
     background-color: transparent;
 }
 
+.dropdown-rooms{
+  margin-left: 120px;
+}
+
+.dropdown .dropdown-menu {
+
+}
+
 .logo{
    
     top: 0%;
@@ -177,6 +185,8 @@ i{
   color: black;
 }
 
+.flex-row span.edit {margin-right: 20px;}
+
 .flex-row button 
 {
   background-color:transparent;
@@ -209,17 +219,21 @@ i{
 
     
 footer{
-    height: 100px;
-    width: 100%;
+ 
     background-color: $base-color;
-    position: fixed;
-    left: 0;
-    bottom: 0;    
+    clear: both;
+    position: relative;
+    height: 120px;
+    margin-top: 100px; 
 }
 
 
 footer .footer-text {
-    margin-top:50px
+  text-align: center;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 
 // Responsive
@@ -277,4 +291,43 @@ footer .footer-text {
       width: 100%; //1px = border right
     }
   }
+
+  @media (max-width: 992px)
+  {
+    .navbar-expand-lg .navbar-collapse {
+      background-color: $base-color;
+      display: inline;
+    }
+
+    .navbar-expand-lg .navbar-collapse ul {
+      background-color: $base-color;
+      display: inline;
+    }
+
+    .logout {
+      position: relative ;
+      top: 0;
+      left: 0;
+       margin-left: 0;
+      display: inline; 
+  }
+
+
+  .dropdown-rooms{
+    margin-left: 10px;
+  }
+  
+  .room_name h1{
+    margin-top:70px;
+  }
+
+
+  .brand {
+    display: none;
+  }
+  .nav-link a
+  {
+    margin-left: 0;
+  }
+}
 
