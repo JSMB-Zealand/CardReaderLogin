@@ -24,6 +24,9 @@ let userUri: string = "https://jsmbcardreader.azurewebsites.net/api/user";
 let outputElement: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
 let outputStorageElement: HTMLDivElement = <HTMLDivElement>document.getElementById("content-storage");
 
+let addCardb: HTMLButtonElement = <HTMLButtonElement>document.getElementById("addCardButton");
+addCardb.addEventListener("click", addCard);
+
 
     axios.get<Entry[]>(entryUri)
     .then(function (response:AxiosResponse<Entry[]>):void{
@@ -84,6 +87,20 @@ let outputStorageElement: HTMLDivElement = <HTMLDivElement>document.getElementBy
     .catch(function (error:AxiosError):void{
             //divElement.innerHTML= error.message;        
     })
+
+
+    function addCard(): void {
+        let addIdElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addId");
+        let addNameElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addName");
+        let addRankElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addRank");
+        let myId: number = Number(addIdElement.value);
+        let myName: string = addNameElement.value;
+        let myRank: string = addRankElement.value;
+        axios.post<User>(userUri, { id: myId, name: myName, rank: myRank })
+            .then((response: AxiosResponse) => { console.log("response " + response.status + " " + response.statusText); })
+            .catch((error: AxiosError) => { console.log(error); });
+            console.log("done");
+    }
 
 
 /*
