@@ -23,9 +23,11 @@ let userUri: string = "https://jsmbcardreader.azurewebsites.net/api/user";
 
 let outputElement: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
 let outputStorageElement: HTMLDivElement = <HTMLDivElement>document.getElementById("content-storage");
-
 let addCardb: HTMLButtonElement = <HTMLButtonElement>document.getElementById("addCardButton");
-addCardb.addEventListener("click", addCard);
+if(outputStorageElement)
+{
+    addCardb.addEventListener("click", addCard);
+}
 
 
     axios.get<Entry[]>(entryUri)
