@@ -110,7 +110,7 @@ axios.get<Entry[]>(entryUri)
 let buttonelement:HTMLButtonElement = <HTMLButtonElement> document.getElementById("myInput");  
 
 
-/*
+
 if(outputElement)
 {
   buttonelement.addEventListener('keydown',myFunction);
@@ -154,4 +154,3 @@ else
     }
   }
 }
-*/
