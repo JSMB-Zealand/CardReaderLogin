@@ -117,6 +117,12 @@ i{
         margin:0;
     }
 
+    &.row:hover{
+      
+        background: #F5F5F5;
+        transition: 500ms;
+          }
+
     &:first-of-type {
       border-top: solid 1px $table-header-border;
       border-left: solid 1px $table-header-border;
@@ -130,11 +136,9 @@ i{
     &.row:nth-child(odd) .flex-row {
       background: $row-bg;
     }
-    &:hover {
-      background: #F5F5F5;
-      transition: 500ms;
-    }
+  
   }
+
   
   .flex-row {
     width: calc(100% / 4);
@@ -143,6 +147,8 @@ i{
     margin: 0;
     border-right: solid 1px $table-border;
     border-bottom: solid 1px $table-border;
+
+
   }
   
   .rowspan {
@@ -164,10 +170,7 @@ i{
       padding: 0;
       border: 0;
       border-bottom: solid 1px $table-border;
-      &:hover {
-        background: #F5F5F5;
-        transition: 500ms;
-      }
+  
     }
   }
   
@@ -182,25 +185,35 @@ i{
     }
   }
   
+  table{
+    margin-top: 50px;
+  }
 
-  .flex-row span.edit {
+  thead tr {
+    background-color: #242582;
+    color: white; 
+  }
+
+  table span.edit {
     display: inline;
   }
 
-.flex-row  i {
+table  i {
   font-size: 16px;
   color: black;
 }
 
-.flex-row span.edit {margin-right: 20px;}
 
-.flex-row button 
+table span.edit {margin-right: 20px; margin-left: 30px;}
+
+table button 
 {
+ 
   background-color:transparent;
   border-color: transparent;
 }
 
-.flex-row button:hover{background-color: rgba(0, 0, 0, 0.1); transition-duration: .4s;}
+table button:hover{background-color: rgba(0, 0, 0, 0.1); transition-duration: .4s;}
 
 .pagination {
     display: inline-block;

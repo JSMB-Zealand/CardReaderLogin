@@ -12,6 +12,7 @@
   "author": "Ebbe Vang, evang.dk",
   "license": "ISC",
   "devDependencies": {
+    "@types/jquery": "^3.3.31",
     "browser-sync": "^2.24.6",
     "browser-sync-webpack-plugin": "^2.2.2",
     "css-loader": "^1.0.0",
@@ -27,6 +28,7 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.19.0",
+    "jquery": "^3.4.1"
   }
 }
