@@ -19,7 +19,7 @@ interface User {
 
 
 let entryUri :string = "https://jsmbcardreader.azurewebsites.net/api/entry";
-let userUri: string = "https://jsmbcardreader.azurewebsites.net/api/user";
+let userUri: string =  "https://jsmbcardreader.azurewebsites.net/api/user";
 
 let outputElement: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
 let outputStorageElement: HTMLDivElement = <HTMLDivElement>document.getElementById("content-storage");
@@ -55,6 +55,7 @@ axios.get<Entry[]>(entryUri)
         tableHead += '</table>';
         result += "</tbody>";
     outputElement.innerHTML = tableHead + result ;
+  }
 )
 .catch(function (error:AxiosError):void{
         //divElement.innerHTML= error.message;        
@@ -94,22 +95,54 @@ axios.get<Entry[]>(entryUri)
   })
 
 
-  function addCard(): void {
-      let addIdElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addId");
-      let addNameElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addName");
-      let addRankElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addRank");
-      let myId: number = Number(addIdElement.value);
-      let myName: string = addNameElement.value;
-      let myRank: string = addRankElement.value;
-      axios.post<User>(userUri, { id: myId, name: myName, rank: myRank })
-          .then((response: AxiosResponse) => { console.log("response " + response.status + " " + response.statusText); })
-          .catch((error: AxiosError) => { console.log(error); });
-          console.log("done");
-  }
+  let deleteCarButton: HTMLButtonElement = <HTMLButtonElement> document.getElementById("delButton");
+
+    if(deleteCarButton)
+    {
+      deleteCarButton.addEventListener('click',deleteCar);
+
+    }
+
+
+  function deleteCar(): void {
+    let output: HTMLDivElement = <HTMLDivElement>document.getElementById("contentDelete");
+    let inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById("deleteInput");
+    let model: string = inputElement.value;
+    let uri: string = userUri + "/" + model;
+    axios.delete<User>(uri)
+        .then(function (response: AxiosResponse<User>): void {
+            // element.innerHTML = generateSuccessHTMLOutput(response);
+            // outputHtmlElement.innerHTML = generateHtmlTable(response.data);
+            console.log(JSON.stringify(response));
+            output.innerHTML = response.status + " " + response.statusText;
+        })
+        .catch(function (error: AxiosError): void { // error in GET or in generateSuccess?
+            if (error.response) {
+                // the request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                // https://kapeli.com/cheat_sheets/Axios.docset/Contents/Resources/Documents/index
+                //output.innerHTML = error;
+            } else { // something went wrong in the .then block?
+                //output.innerHTML = error;
+            }
+        });
+}
+
+
+function addCard(): void {
+  let addIdElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addId");
+  let addNameElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addName");
+  let addRankElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addRank");
+  let myId: number = Number(addIdElement.value);
+  let myName: string = addNameElement.value;
+  let myRank: string = addRankElement.value;
+  axios.post<User>(userUri, { id: myId, name: myName, rank: myRank })
+      .then((response: AxiosResponse) => { console.log("response " + response.status + " " + response.statusText); })
+      .catch((error: AxiosError) => { console.log(error); });
+      console.log("done");
+}
 
 let buttonelement:HTMLButtonElement = <HTMLButtonElement> document.getElementById("myInput");  
-
-
 
 if(outputElement)
 {
@@ -154,3 +187,7 @@ else
     }
   }
 }
+
+
+
+
