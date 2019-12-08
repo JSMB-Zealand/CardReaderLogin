@@ -26,8 +26,10 @@ let outputStorageElement: HTMLDivElement = <HTMLDivElement>document.getElementBy
 let addCardb: HTMLButtonElement = <HTMLButtonElement>document.getElementById("addCardButton");
 if(outputStorageElement)
 {
-  addCardb.addEventListener("click", addCard);
+    addCardb.addEventListener("click", addCard);
 }
+
+
 
 
 axios.get<Entry[]>(entryUri)
@@ -129,6 +131,8 @@ axios.get<Entry[]>(entryUri)
 }
 
 
+//let addFormElement: HTMLFormElement = <HTMLFormElement>document.getElementById("fake-form");
+
 function addCard(): void {
   let addIdElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addId");
   let addNameElement: HTMLInputElement = <HTMLInputElement>document.getElementById("addName");
@@ -136,11 +140,25 @@ function addCard(): void {
   let myId: number = Number(addIdElement.value);
   let myName: string = addNameElement.value;
   let myRank: string = addRankElement.value;
-  axios.post<User>(userUri, { id: myId, name: myName, rank: myRank })
-      .then((response: AxiosResponse) => { console.log("response " + response.status + " " + response.statusText); })
-      .catch((error: AxiosError) => { console.log(error); });
-      console.log("done");
+ /*
+  var myId   = document.forms["myForm"]["fid"].value;
+  var myName = document.forms["myForm"]["fname"].value;
+  var myRank = document.forms["myForm"]["frank"].value;
+*/
+    axios.post<User>(userUri, { id: myId, name: myName, rank: myRank })
+    .then((response: AxiosResponse) => { console.log("response " + response.status + " " + response.statusText); })
+    .catch((error: AxiosError) => { console.log(error); });
+    console.log("done");
+ 
 }
+
+function initMap() {
+  var mapProp = {
+      center:new google.maps.LatLng(51.508742,-0.120850),
+      zoom:5,
+  };
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  }
 
 let buttonelement:HTMLButtonElement = <HTMLButtonElement> document.getElementById("myInput");  
 

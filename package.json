@@ -12,6 +12,7 @@
   "author": "Ebbe Vang, evang.dk",
   "license": "ISC",
   "devDependencies": {
+    "@types/googlemaps": "^3.38.1",
     "@types/jquery": "^3.3.31",
     "browser-sync": "^2.24.6",
     "browser-sync-webpack-plugin": "^2.2.2",
