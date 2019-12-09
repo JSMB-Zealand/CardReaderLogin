@@ -1,7 +1,8 @@
 console.log("sda");
 import axios, {
   AxiosResponse,
-  AxiosError} from "../../node_modules/axios/index";
+  AxiosError
+} from "../../node_modules/axios/index";
 
 
 interface Entry {
@@ -18,116 +19,110 @@ interface User {
 }
 
 
-let entryUri :string = "https://jsmbcardreader.azurewebsites.net/api/entry";
-let userUri: string =  "https://jsmbcardreader.azurewebsites.net/api/user";
+let entryUri: string = "https://jsmbcardreader.azurewebsites.net/api/entry";
+let userUri: string = "https://jsmbcardreader.azurewebsites.net/api/user";
 
 let outputElement: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
 let outputStorageElement: HTMLDivElement = <HTMLDivElement>document.getElementById("content-storage");
 let addCardb: HTMLButtonElement = <HTMLButtonElement>document.getElementById("addCardButton");
-if(outputStorageElement)
-{
-    addCardb.addEventListener("click", addCard);
+if (outputStorageElement) {
+  addCardb.addEventListener("click", addCard);
 }
 
 
 
 
 axios.get<Entry[]>(entryUri)
-.then(function (response:AxiosResponse<Entry[]>):void{
-    let tableHead : string = '<table class="table table-hover index-table" id="content">';
-    let result : string = '<tbody>';
-    response.data.forEach((entry : Entry) => {
-        if(entry == null)
-          {
-        
-           // result += "<li> NULL element</li>"        
-           console.log("null");
-           
-          }
-        else
-          {
-            tableHead ='<thead class="index-table-head"><tr><th scope="col">Card #</th><th scope="col">Name</th><th scope="col">Rank</th><th scope="col">Time</th></tr></thead>';
-            result += '<tr><th scope="row">'+entry.id+'</th><td>'+ entry.name+'</td><td>'+entry.rank+'</td><td>'+entry.time+'</td></tr>' ;  
-           // result += "<li> "+user.id  +"</li>" 
-          // result += '<tr><th scope="row">'+entry.id+'</th><td>Mark</td><td>Staff</td><td>12.10.2019:12:06:12</td></tr>' ;      
+  .then(function (response: AxiosResponse<Entry[]>): void {
+    let tableHead: string = '<table class="table table-hover index-table" id="content">';
+    let result: string = '<tbody>';
+    response.data.forEach((entry: Entry) => {
+      if (entry == null) {
 
-          }
-        });
+        // result += "<li> NULL element</li>"        
+        console.log("null");
 
-        tableHead += '</table>';
-        result += "</tbody>";
-    outputElement.innerHTML = tableHead + result ;
-  }
-)
-.catch(function (error:AxiosError):void{
-        //divElement.innerHTML= error.message;        
-})
+      }
+      else {
+        tableHead = '<thead class="index-table-head"><tr><th scope="col">Card #</th><th scope="col">Name</th><th scope="col">Rank</th><th scope="col">Time</th></tr></thead>';
+        result += '<tr><th scope="row">' + entry.id + '</th><td>' + entry.name + '</td><td>' + entry.rank + '</td><td>' + entry.time + '</td></tr>';
+        // result += "<li> "+user.id  +"</li>" 
+        // result += '<tr><th scope="row">'+entry.id+'</th><td>Mark</td><td>Staff</td><td>12.10.2019:12:06:12</td></tr>' ;      
 
+      }
+    });
 
-  axios.get<User[]>(userUri)
-  .then(function (response:AxiosResponse<User[]>):void{
-    let tableHead : string = '<table class="table table-hover index-table" id="content-storage">';
-    let result : string = '<tbody>';
-      response.data.forEach((user : User) => {
-          if(user == null)
-            {
-          
-             // result += "<li> NULL element</li>"        
-            }
-          else
-            {
-              tableHead ='<thead class="index-table-head"><tr><th scope="col">Action</th><th scope="col">Card #</th><th scope="col">Name</th><th scope="col">Rank</th></tr></thead>';
-
-              // result += "<li> "+user.id  +"</li>" 
-            // result += ' <div class="flex-table row"><div class="flex-row first" role="cell"><span class="edit"> <button type="submit">    <i class="fas fa-edit"></i><span>edit</span></button> </span><span class="delete"><button type="submit">    <i class="fas fa-trash"></i><span>delete</span></button> </span> </div><div class="flex-row">'+ user.id + '</div><div class="flex-row">' + user.name +   '</div><div class="flex-row">'+ user.rank + '</div>';      
-             result +='<tr><th scope="row"> <span class="edit"> <button type="submit"><i class="fas fa-edit"></i><span>edit</span></button> </span><span class="delete"><button type="submit"><i class="fas fa-trash"></i><span>delete</span></button> </span> </th><td>'+ user.id+'</td><td>'+user.name+'</td><td>'+user.rank+'</td></tr>'
-
-             
-            }
-          });
-
-
-          tableHead += '</table>';
-          result += "</tbody>";
-     outputStorageElement.innerHTML = tableHead + result;
+    tableHead += '</table>';
+    result += "</tbody>";
+    outputElement.innerHTML = tableHead + result;
   }
   )
-  .catch(function (error:AxiosError):void{
-          //divElement.innerHTML= error.message;        
+  .catch(function (error: AxiosError): void {
+    //divElement.innerHTML= error.message;        
   })
 
 
-  let deleteCarButton: HTMLButtonElement = <HTMLButtonElement> document.getElementById("delButton");
+axios.get<User[]>(userUri)
+  .then(function (response: AxiosResponse<User[]>): void {
+    let tableHead: string = '<table class="table table-hover index-table" id="content-storage">';
+    let result: string = '<tbody>';
+    response.data.forEach((user: User) => {
+      if (user == null) {
 
-    if(deleteCarButton)
-    {
-      deleteCarButton.addEventListener('click',deleteCar);
+        // result += "<li> NULL element</li>"        
+      }
+      else {
+        tableHead = '<thead class="index-table-head"><tr><th scope="col">Action</th><th scope="col">Card #</th><th scope="col">Name</th><th scope="col">Rank</th></tr></thead>';
 
-    }
+        // result += "<li> "+user.id  +"</li>" 
+        // result += ' <div class="flex-table row"><div class="flex-row first" role="cell"><span class="edit"> <button type="submit">    <i class="fas fa-edit"></i><span>edit</span></button> </span><span class="delete"><button type="submit">    <i class="fas fa-trash"></i><span>delete</span></button> </span> </div><div class="flex-row">'+ user.id + '</div><div class="flex-row">' + user.name +   '</div><div class="flex-row">'+ user.rank + '</div>';      
+        result += '<tr><th scope="row"> <span class="edit"> <button type="submit"><i class="fas fa-edit"></i><span>edit</span></button> </span><span class="delete"><button type="submit"><i class="fas fa-trash"></i><span>delete</span></button> </span> </th><td>' + user.id + '</td><td>' + user.name + '</td><td>' + user.rank + '</td></tr>'
 
 
-  function deleteCar(): void {
-    let output: HTMLDivElement = <HTMLDivElement>document.getElementById("contentDelete");
-    let inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById("deleteInput");
-    let model: string = inputElement.value;
-    let uri: string = userUri + "/" + model;
-    axios.delete<User>(uri)
-        .then(function (response: AxiosResponse<User>): void {
-            // element.innerHTML = generateSuccessHTMLOutput(response);
-            // outputHtmlElement.innerHTML = generateHtmlTable(response.data);
-            console.log(JSON.stringify(response));
-            output.innerHTML = response.status + " " + response.statusText;
-        })
-        .catch(function (error: AxiosError): void { // error in GET or in generateSuccess?
-            if (error.response) {
-                // the request was made and the server responded with a status code
-                // that falls out of the range of 2xx
-                // https://kapeli.com/cheat_sheets/Axios.docset/Contents/Resources/Documents/index
-                //output.innerHTML = error;
-            } else { // something went wrong in the .then block?
-                //output.innerHTML = error;
-            }
-        });
+      }
+    });
+
+
+    tableHead += '</table>';
+    result += "</tbody>";
+    outputStorageElement.innerHTML = tableHead + result;
+  }
+  )
+  .catch(function (error: AxiosError): void {
+    //divElement.innerHTML= error.message;        
+  })
+
+
+let deleteCarButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("delButton");
+
+if (deleteCarButton) {
+  deleteCarButton.addEventListener('click', deleteCar);
+
+}
+
+
+function deleteCar(): void {
+  let output: HTMLDivElement = <HTMLDivElement>document.getElementById("contentDelete");
+  let inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById("deleteInput");
+  let model: string = inputElement.value;
+  let uri: string = userUri + "/" + model;
+  axios.delete<User>(uri)
+    .then(function (response: AxiosResponse<User>): void {
+      // element.innerHTML = generateSuccessHTMLOutput(response);
+      // outputHtmlElement.innerHTML = generateHtmlTable(response.data);
+      console.log(JSON.stringify(response));
+      output.innerHTML = response.status + " " + response.statusText;
+    })
+    .catch(function (error: AxiosError): void { // error in GET or in generateSuccess?
+      if (error.response) {
+        // the request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        // https://kapeli.com/cheat_sheets/Axios.docset/Contents/Resources/Documents/index
+        //output.innerHTML = error;
+      } else { // something went wrong in the .then block?
+        //output.innerHTML = error;
+      }
+    });
 }
 
 
@@ -140,33 +135,43 @@ function addCard(): void {
   let myId: number = Number(addIdElement.value);
   let myName: string = addNameElement.value;
   let myRank: string = addRankElement.value;
- /*
-  var myId   = document.forms["myForm"]["fid"].value;
-  var myName = document.forms["myForm"]["fname"].value;
-  var myRank = document.forms["myForm"]["frank"].value;
-*/
-    axios.post<User>(userUri, { id: myId, name: myName, rank: myRank })
+  /*
+   var myId   = document.forms["myForm"]["fid"].value;
+   var myName = document.forms["myForm"]["fname"].value;
+   var myRank = document.forms["myForm"]["frank"].value;
+ */
+  axios.post<User>(userUri, { id: myId, name: myName, rank: myRank })
     .then((response: AxiosResponse) => { console.log("response " + response.status + " " + response.statusText); })
     .catch((error: AxiosError) => { console.log(error); });
-    console.log("done");
- 
+  console.log("done");
+
 }
 
 function initMap() {
   var mapProp = {
-      center:new google.maps.LatLng(51.508742,-0.120850),
-      zoom:5,
+    center: new google.maps.LatLng(51.508742, -0.120850),
+    zoom: 5,
   };
-  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+
+let buttonelement: HTMLButtonElement = <HTMLButtonElement>document.getElementById("myInput");
+
+function ValidateForm() {
+  var x = document.forms["Login"]["nLogin"].value;
+  var y = document.forms["Login"]["pLogin"].value;
+  if (x != "admin" && y != "admin") {
+    alert("Your Name or Password is invalid");
+    return false;
+  } else {
+    return true;
   }
+}
 
-let buttonelement:HTMLButtonElement = <HTMLButtonElement> document.getElementById("myInput");  
-
-if(outputElement)
-{
-  buttonelement.addEventListener('keydown',myFunction);
+if (outputElement) {
+  buttonelement.addEventListener('keydown', myFunction);
   function myFunction() {
-    var  filter, table, tr, td, i, txtValue;
+    var filter, table, tr, td, i, txtValue;
     filter = buttonelement.value.toUpperCase();
     table = document.getElementById("content");
     tr = table.getElementsByTagName("tr");
@@ -179,16 +184,15 @@ if(outputElement)
         } else {
           tr[i].style.display = "none";
         }
-      }       
+      }
     }
   }
 }
 
-else
-{
-  buttonelement.addEventListener('keydown',myFunction);
+else {
+  buttonelement.addEventListener('keydown', myFunction);
   function myFunction() {
-    var  filter, table, tr, td, i, txtValue;
+    var filter, table, tr, td, i, txtValue;
     filter = buttonelement.value.toUpperCase();
     table = document.getElementById("content-storage");
     tr = table.getElementsByTagName("tr");
@@ -201,7 +205,7 @@ else
         } else {
           tr[i].style.display = "none";
         }
-      }       
+      }
     }
   }
 }

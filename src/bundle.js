@@ -138,6 +138,7 @@ module.exports = __webpack_require__.p + "storage.html";
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./src/index.htm */"./src/index.htm");
+__webpack_require__(/*! ./src/home.html */"./src/home.html");
 __webpack_require__(/*! ./src/scss/styles.scss */"./src/scss/styles.scss");
 __webpack_require__(/*! ./src/js/index.ts */"./src/js/index.ts");
 module.exports = __webpack_require__(/*! ./src/storage.html */"./src/storage.html");

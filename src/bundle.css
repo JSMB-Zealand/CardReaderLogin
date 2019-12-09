@@ -1,15 +1,15 @@
 div {
   box-sizing: border-box; }
 
-body {
+body{
   margin: 0;
   padding: 0;
   font-size: 12px;
   font-family: 'Courier New', Courier, monospace;
   color: black; }
-
+  
 a {
-  color: #fff; }
+  color: #ffff; }
 
 nav {
   height: 50px;
@@ -47,8 +47,8 @@ nav {
   display: inline; }
 
 .logout button span {
-  height: 30px;
-  width: 30px;
+  max-height: 30px;
+  max-width: 30px;
   display: inline; }
 
 i {
