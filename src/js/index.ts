@@ -157,24 +157,21 @@ function initMap() {
 
 let buttonelement: HTMLButtonElement = <HTMLButtonElement>document.getElementById("myInput");
 
-function ValidateForm() {
+function ValidateForm(){
   var x = document.forms["Login"]["nLogin"].value;
   var y = document.forms["Login"]["pLogin"].value;
   if (x != "admin" && y != "admin") {
     alert("Your Name or Password is invalid");
-    return false;
-  } else {
-    return true;
+    return false
   }
 }
-
-if (outputElement) {
+/*if (outputElement) {
   buttonelement.addEventListener('keydown', myFunction);
   function myFunction() {
     var filter, table, tr, td, i, txtValue;
     filter = buttonelement.value.toUpperCase();
     table = document.getElementById("content");
-    tr = table.getElementsByTagName("tr");
+   tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[0];
       if (td) {
@@ -209,7 +206,7 @@ else {
     }
   }
 }
-
+*/
 
 
 
